@@ -1,0 +1,59 @@
+@use "styles" as *;
+
+body {
+  text-align: center;
+  background-color: $background;
+  color: $light;
+  overflow-x: hidden;
+  font-family: $secondary-font;
+  font-size: 1.1rem;
+  padding-top: 6.5rem;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+header {
+  background-color: $secondary;
+  padding: 0 1rem;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+footer {
+  background-color: $secondary;
+  color: $primary;
+  width: 100vw;
+  height: auto;
+  padding: 2rem 0;
+
+  .text-start {
+    @include media-breakpoint-down(sm) {
+      font-size: 0.66rem;
+    }
+  }
+}
+
+.App-link {
+  color: $tertiary;
+}
+
+h1 {
+  font-family: $primary-font;
+  font-weight: bold;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $primary-font;
+}
+
+i {
+  font-family: $tertiary-font;
+}

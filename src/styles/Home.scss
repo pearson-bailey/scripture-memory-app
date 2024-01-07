@@ -1,0 +1,25 @@
+@use "styles" as *;
+
+.Home {
+  display: flex;
+  flex-direction: column;
+
+  &__main {
+    margin: 2rem 0;
+  }
+
+  &__testimonials {
+    margin: 2rem 1rem;
+
+    .slick-dots {
+      li > button::before {
+        color: $light;
+        opacity: 50%;
+      }
+
+      .slick-active > button::before {
+        color: $light;
+      }
+    }
+  }
+}

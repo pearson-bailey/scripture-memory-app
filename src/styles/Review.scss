@@ -1,0 +1,25 @@
+@use "styles" as *;
+
+.Review {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__form {
+    &__title,
+    &__body,
+    &__reviewer {
+      margin-bottom: 1rem;
+
+      label {
+        text-align: right;
+      }
+
+      input,
+      textarea {
+        flex-grow: 1;
+      }
+    }
+  }
+}

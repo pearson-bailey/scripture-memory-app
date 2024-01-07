@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300&family=Life+Savers:wght@400;700;800&display=swap&family=Josefin+Sans:wght@200");
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin media-breakpoint-down($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+/* font styles */
+$primary-font: "Life Savers", serif;
+$secondary-font: "Advent Pro", sans-serif;
+$tertiary-font: "Josefin Sans", sans-serif;
+
+/* color styles */
+$primary: #97feed;
+$secondary: #071952;
+$tertiary: #35a29f;
+$tertiary-light: #66d0c6;
+$background: #0b666a;
+$light: white;
+$dark: black;

@@ -1,0 +1,81 @@
+@use "styles" as *;
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: $primary;
+  padding: 1rem 0;
+  z-index: 2;
+
+  &__Logo {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__Image {
+      max-height: 75px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__Title {
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  &__Links {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &__Search {
+      color: $tertiary;
+      cursor: pointer;
+
+      &:hover {
+        color: $tertiary-light;
+      }
+    }
+
+    &__Account {
+      color: $tertiary;
+      margin: 0 1.5rem;
+      text-decoration: none;
+
+      &-text {
+        font-size: 1rem;
+        position: absolute;
+        bottom: 0;
+      }
+
+      @include media-breakpoint-down(sm) {
+        margin: 0 0.5rem;
+      }
+
+      svg {
+        &:hover {
+          color: $tertiary-light;
+        }
+      }
+    }
+
+    &__Nav {
+      color: $tertiary;
+      cursor: pointer;
+
+      &:hover {
+        color: $tertiary-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "styles" as *;
+
+.Card {
+  margin: 1rem 3rem;
+  padding: 1.5rem 0;
+  background-image: url("../assets/speech-bubble.png");
+  background-size: 100% 100%;
+  color: $secondary;
+  filter: drop-shadow(10px 10px 5px hsl(0, 0%, 13%));
+
+  &__Reviewer {
+    &__Icon {
+      color: $secondary;
+      background-color: $primary;
+      border-radius: 100%;
+      border: 1px solid $secondary;
+    }
+  }
+}
