@@ -1,5 +1,22 @@
 @use "styles" as *;
 
+.App {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  &-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  &-link {
+    color: $tertiary;
+  }
+}
+
 body {
   text-align: center;
   background-color: $background;
@@ -7,20 +24,16 @@ body {
   overflow-x: hidden;
   font-family: $secondary-font;
   font-size: 1.1rem;
-  padding-top: 6.5rem;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 header {
   background-color: $secondary;
   padding: 0 1rem;
-  position: absolute;
-  top: 0;
   width: 100vw;
+}
+
+main {
+  flex: 1;
 }
 
 footer {
@@ -35,10 +48,6 @@ footer {
       font-size: 0.66rem;
     }
   }
-}
-
-.App-link {
-  color: $tertiary;
 }
 
 h1 {

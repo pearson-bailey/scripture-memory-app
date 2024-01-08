@@ -55,7 +55,6 @@
       &-text {
         font-size: 1rem;
         position: absolute;
-        bottom: 0;
       }
 
       @include media-breakpoint-down(sm) {

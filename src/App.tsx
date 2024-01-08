@@ -79,37 +79,47 @@ const App = () => {
 
   return (
     <Router>
-      <Header
-        session={session}
-        showSlideNav={showSlideNav}
-        showSearchBar={showSearchBar}
-        loading={loading}
-        username={username}
-      ></Header>
-      {showSearch ? <SearchBar showSearchBar={showSearchBar} /> : null}
-      {showNav ? (
-        <Nav
+      <div className="App__wrapper">
+        <Header
           session={session}
           showSlideNav={showSlideNav}
+          showSearchBar={showSearchBar}
           loading={loading}
           username={username}
-        />
-      ) : null}
-      <Routes>
-        <Route
-          path="/my-account"
-          element={!session ? <Login /> : <Account session={session} />}
-        />
-        <Route
-          path="/"
-          element={<Home title={"Home Page"} session={session} />}
-        />
-        <Route path="/home" element={<Navigate replace to="/" />} />
-        <Route path="/review" element={<Review title={"Leave a Review!"} />} />
-        <Route path="/search/:version?/:reference?" element={<Search />} />
-        <Route path="/dashboard" element={<Dashboard session={session} />} />
-      </Routes>
-      <Footer title={"Footer"} />
+        ></Header>
+        {showSearch ? <SearchBar showSearchBar={showSearchBar} /> : null}
+        {showNav ? (
+          <Nav
+            session={session}
+            showSlideNav={showSlideNav}
+            loading={loading}
+            username={username}
+          />
+        ) : null}
+        <main>
+          <Routes>
+            <Route
+              path="/my-account"
+              element={!session ? <Login /> : <Account session={session} />}
+            />
+            <Route
+              path="/"
+              element={<Home title={"Home Page"} session={session} />}
+            />
+            <Route path="/home" element={<Navigate replace to="/" />} />
+            <Route
+              path="/review"
+              element={<Review title={"Leave a Review!"} />}
+            />
+            <Route path="/search/:version?/:reference?" element={<Search />} />
+            <Route
+              path="/dashboard"
+              element={<Dashboard session={session} />}
+            />
+          </Routes>
+        </main>
+        <Footer title={"Footer"} />
+      </div>
     </Router>
   );
 };
