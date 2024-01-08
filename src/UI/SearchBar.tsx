@@ -1,13 +1,14 @@
 import "../styles/SearchBar.scss";
-import React, { FormEvent, useCallback, useState } from "react";
+import React, { FormEvent, RefObject, useCallback, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 interface SearchBarProps {
   showSearchBar: () => void;
+  className?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ showSearchBar }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ showSearchBar, className }) => {
   const [inputValue, setInputValue] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -34,7 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ showSearchBar }) => {
   );
 
   return (
-    <div className={"SearchBar"}>
+    <div className={`SearchBar ${className}`}>
       <div className={"SearchBar__row"}>
         <form
           className="SearchBar__row__form"

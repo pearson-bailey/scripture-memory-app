@@ -1,27 +1,26 @@
 @use "styles" as *;
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
 .Nav {
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
+  right: -400px;
   z-index: 30;
   background: $dark;
   color: $primary;
   width: 400px;
   height: 100vh;
-  animation: slideIn 0.5s forwards;
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  transition: transform 0.7s ease-in-out;
+
+  &.shown {
+    transform: translateX(-400px);
+  }
+
+  &.hidden {
+    transform: translateX(0);
+  }
 
   &__header {
     display: flex;

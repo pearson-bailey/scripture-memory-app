@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { createRef, useCallback, useEffect, useState } from "react";
 import {
   Navigate,
   BrowserRouter as Router,
@@ -14,8 +14,8 @@ import { Nav, SearchBar } from "./UI";
 
 const App = () => {
   const [session, setSession] = useState<Session | null>(null);
-  const [showNav, setShowNav] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
+  const [showNav, setShowNav] = useState<string>("");
+  const [showSearch, setShowSearch] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
 
@@ -70,11 +70,13 @@ const App = () => {
   }, [session]);
 
   const showSlideNav = useCallback(() => {
-    setShowNav((prev) => !prev);
+    setShowNav((prevShowNav) => (prevShowNav === "shown" ? "hidden" : "shown"));
   }, []);
 
   const showSearchBar = useCallback(() => {
-    setShowSearch((prev) => !prev);
+    setShowSearch((prevShowSearch) =>
+      prevShowSearch === "shown" ? "hidden" : "shown"
+    );
   }, []);
 
   return (
@@ -87,15 +89,14 @@ const App = () => {
           loading={loading}
           username={username}
         ></Header>
-        {showSearch ? <SearchBar showSearchBar={showSearchBar} /> : null}
-        {showNav ? (
-          <Nav
-            session={session}
-            showSlideNav={showSlideNav}
-            loading={loading}
-            username={username}
-          />
-        ) : null}
+        <SearchBar showSearchBar={showSearchBar} className={showSearch} />
+        <Nav
+          session={session}
+          showSlideNav={showSlideNav}
+          loading={loading}
+          username={username}
+          className={showNav}
+        />
         <main>
           <Routes>
             <Route

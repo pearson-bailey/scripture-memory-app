@@ -1,5 +1,5 @@
 import "../styles/Nav.scss";
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Session } from "@supabase/supabase-js";
@@ -10,6 +10,7 @@ interface NavProps {
   showSlideNav: MouseEventHandler;
   loading: boolean;
   username: string | null;
+  className?: string;
 }
 
 const Nav: React.FC<NavProps> = ({
@@ -17,9 +18,10 @@ const Nav: React.FC<NavProps> = ({
   showSlideNav,
   loading,
   username,
+  className,
 }) => {
   return (
-    <div className={"Nav"}>
+    <div className={`Nav ${className}`}>
       <div className={"Nav__header"}>
         <h2 className={"Nav__header__title"}>Slide Nav</h2>
         <a className={"Nav__header__close"} onClick={showSlideNav}>
